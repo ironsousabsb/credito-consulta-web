@@ -1,23 +1,23 @@
-<section>
-    <ul>
-        <li>Número do Crédito</li>
-        <li>Número NFse</li>
-        <li>Data de Constituição</li>
-        <li>Valor ISSQN</li>
-        <li>Tipo de Crédito</li>
-        <li>Simples Nacional</li>
-        <li>Alíquota</li>
-        <li>Valor Faturado</li>
-        <li>Valor de Dedução</li>
-        <li>Base de cálculo</li>
-        <li>
-            <button>
-                <img src="pencil-square.png" alt="">
-            </button>
-            <button>
-                <img src="trash.png" alt="">
-            </button>
-        </li>
-        
-    </ul>
+<section class="credito">
+  <div class="card" *ngFor="let credito of creditos">
+    <div class="linha-dado"><span class="campo">Nº Crédito:</span> <span [innerHTML]="destacar(credito.numeroCredito)"></span></div>
+    <div class="linha-dado"><span class="campo">Nº NFSe:</span> <span [innerHTML]="destacar(credito.numeroNfse)"></span></div>
+    <div class="linha-dado"><span class="campo">Data de Constituição:</span> <span [innerHTML]="destacar(credito.dataConstituicao)"></span></div>
+    <div class="linha-dado"><span class="campo">Valor ISSQN:</span> <span [innerHTML]="destacar(credito.valorIssqn.toString())"></span></div>
+    <div class="linha-dado"><span class="campo">Tipo de Crédito:</span> <span [innerHTML]="destacar(credito.tipoCredito)"></span></div>
+    <div class="linha-dado"><span class="campo">Simples Nacional:</span> <span [innerHTML]="destacar(credito.simplesNacional)"></span></div>
+    <div class="linha-dado"><span class="campo">Alíquota:</span> <span [innerHTML]="destacar(credito.aliquota.toString())"></span></div>
+    <div class="linha-dado"><span class="campo">Valor Faturado:</span> <span [innerHTML]="destacar(credito.valorFaturado.toString())"></span></div>
+    <div class="linha-dado"><span class="campo">Valor de Dedução:</span> <span [innerHTML]="destacar(credito.valorDeducao.toString())"></span></div>
+    <div class="linha-dado"><span class="campo">Base de Cálculo:</span> <span [innerHTML]="destacar(credito.baseCalculo.toString())"></span></div>
+    
+    <div class="card-actions">
+      <button title="Editar">
+        <img src="pencil-square.png" alt="Editar" />
+      </button>
+      <button title="Excluir">
+        <img src="trash.png" alt="Excluir" />
+      </button>
+    </div>
+  </div>
 </section>

@@ -1,0 +1,23 @@
+.filtro-container {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0 1rem;
+  }
+  
+  .filtro-container input {
+    padding: 0.75rem 1rem;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    width: 360px;
+    max-width: 90%;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .filtro-container input:focus {
+    outline: none;
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.2);
+  }
+  

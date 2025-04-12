@@ -1,0 +1,70 @@
+.credito {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.linha-dado {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.linha-dado:last-of-type {
+  border-bottom: none;
+}
+
+.campo {
+  font-weight: 600;
+  color: #444;
+  min-width: 180px;
+}
+
+/* Estilização dos botões na parte inferior */
+.card-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.card-actions button {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.card-actions button:hover {
+  background-color: #e2e2e2;
+}
+
+.card-actions img {
+  width: 20px;
+  height: 20px;
+}
+
+mark {
+  background-color: #ffe066;
+  border-radius: 4px;
+  padding: 0 3px;
+}
