@@ -1,0 +1,83 @@
+<form class="formulario" [formGroup]="creditoForm" (ngSubmit)="salvarCredito()">
+  <div class="cabecalho-wrapper">
+    <header class="cabecalho">
+      <section class="cabecalho-link">
+        <img src="logo.png" alt="Logo">
+      </section>
+      <section class="cabecalho-credito">
+        <img src="adicionar-credito.png" alt="Ícone Adicionar">
+        <h1>Adicionar Crédito</h1>
+      </section>
+    </header>
+  </div>
+
+  <section class="voltar-lista">
+    <button routerLink="/lista-creditos">
+      <img src="arrow-left.png" alt="">
+      <span>Voltar para a Lista</span>
+    </button>
+  </section>
+
+  <div class="grid-container">
+    <div class="campo">
+      <label for="numeroCredito">Número Crédito</label>
+      <input type="text" id="numeroCredito" placeholder="Digite o Número" formControlName="numeroCredito">
+      @if (creditoForm.get('numeroCredito')?.errors && creditoForm.get('numeroCredito')?.touched) {
+        <div class="mensagem-erro">Campo obrigatório</div>
+      }
+    </div>
+
+    <div class="campo">
+      <label for="numeroNfse">Número NFSe</label>
+      <input type="text" id="numeroNfse" placeholder="Digite o NFSe" formControlName="numeroNfse">
+      @if (creditoForm.get('numeroNfse')?.errors && creditoForm.get('numeroNfse')?.touched) {
+        <div class="mensagem-erro">Campo obrigatório</div>
+      }
+    </div>
+
+    <div class="campo campo-data">
+      <label for="dataConstituicao">Data de Constituição</label>
+      <input type="date" id="dataConstituicao" formControlName="dataConstituicao">
+    </div>
+
+    <div class="campo">
+      <label for="valorIssqn">Valor ISSQN</label>
+      <input type="text" id="valorIssqn" placeholder="Digite o Valor ISSQN" formControlName="valorIssqn">
+    </div>
+
+    <div class="campo">
+      <label for="tipoCredito">Tipo de Crédito</label>
+      <input type="text" id="tipoCredito" placeholder="Digite o Tipo de Crédito" formControlName="tipoCredito">
+    </div>
+
+    <div class="campo">
+      <label for="simplesNacional">Simples Nacional</label>
+      <input type="text" id="simplesNacional" placeholder="Digite o Simples Nacional" formControlName="simplesNacional">
+    </div>
+
+    <div class="campo">
+      <label for="aliquota">Alíquota</label>
+      <input type="text" id="aliquota" placeholder="Digite a Alíquota" formControlName="aliquota">
+    </div>
+
+    <div class="campo">
+      <label for="valorFaturado">Valor Faturado</label>
+      <input type="text" id="valorFaturado" placeholder="Digite o Valor Faturado" formControlName="valorFaturado">
+    </div>
+
+    <div class="campo">
+      <label for="valorDeducao">Valor de Dedução</label>
+      <input type="text" id="valorDeducao" placeholder="Digite o Valor de Dedução" formControlName="valorDeducao">
+    </div>
+
+    <div class="campo">
+      <label for="baseCalculo">Base de Cálculo</label>
+      <input type="text" id="baseCalculo" placeholder="Digite a Base de Cálculo" formControlName="baseCalculo">
+    </div>
+  </div>
+
+  <section class="botoes">
+    <button class="botao-salvar" disabled>Salvar</button>
+  </section>
+</form>
+

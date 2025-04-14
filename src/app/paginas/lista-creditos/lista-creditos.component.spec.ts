@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListarCreditosComponent } from './listar-creditos.component';
+import { ListarCreditosComponent } from './lista-creditos.component';
 
-describe('ListarCreditosComponent', () => {
+describe('ListaCreditosComponent', () => {
   let component: ListarCreditosComponent;
   let fixture: ComponentFixture<ListarCreditosComponent>;
 

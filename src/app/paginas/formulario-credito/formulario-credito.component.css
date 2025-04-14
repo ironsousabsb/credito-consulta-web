@@ -1,0 +1,138 @@
+.formulario {
+  max-width: 600px; /* Adjust as needed */
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.cabecalho-wrapper {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho-link img {
+  max-height: 40px; /* Adjust logo size */
+}
+
+.cabecalho-credito {
+  display: flex;
+  align-items: center;
+}
+
+.cabecalho-credito img {
+  height: 24px;
+  margin-right: 8px;
+}
+
+.voltar-lista {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.voltar-lista button {
+  background-color: #e0f7fa; /* Light teal */
+  color: #00acc1; /* Teal */
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.9em;
+}
+
+.voltar-lista button img {
+  height: 18px;
+  margin-right: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  font-size: 0.95em;
+}
+
+.campo input[type="text"],
+.campo input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1em;
+}
+
+.campo-data {
+  grid-column: 1 / span 2; /* Make date field wider if needed */
+}
+
+.mensagem-erro {
+  color: #d32f2f; /* Red error color */
+  font-size: 0.8em;
+  margin-top: 3px;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.botao-cancelar,
+.botao-salvar {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.botao-cancelar {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
+.botao-salvar {
+  background-color: #4caf50; /* Green */
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 500px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Stack fields on smaller screens */
+  }
+
+  .campo-data {
+    grid-column: 1; /* Ensure date field also stacks */
+  }
+
+  .botoes {
+    flex-direction: column-reverse; /* Stack buttons on smaller screens */
+    align-items: stretch;
+  }
+
+  .botoes button {
+    margin-bottom: 10px;
+  }
+}

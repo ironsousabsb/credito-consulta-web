@@ -1,16 +1,6 @@
-<app-container>
-  <app-cabecalho></app-cabecalho>
+<!-- <app-formulario-credito></app-formulario-credito> -->
+<!-- <app-container></app-container> -->
+ <router-outlet>
+    
+ </router-outlet>
 
-  <div class="filtro-container">
-    <input
-      type="text"
-      placeholder="Buscar por NFSe ou Nº Crédito..."
-      [(ngModel)]="filtroBusca"
-    />
-  </div>
-
-  <app-listar-creditos
-    [creditos]="creditosFiltrados"
-    [filtroBusca]="filtroBusca">
-  </app-listar-creditos>
-</app-container>

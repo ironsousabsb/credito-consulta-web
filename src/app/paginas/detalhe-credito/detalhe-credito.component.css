@@ -1,0 +1,113 @@
+/* Fundo da Página */
+.pagina-detalhe {
+    background: linear-gradient(to bottom, #5caaff, #dceeff);
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .cabecalho-wrapper {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+  }
+  
+  .cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .cabecalho-link img {
+    max-height: 40px; /* Adjust logo size */
+  }
+  
+  .cabecalho-credito {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cabecalho-credito img {
+    height: 24px;
+    margin-right: 8px;
+  }
+  
+  /* Card Principal */
+  .detalhe-credito {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    max-width: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  /* Título com ícone */
+  .cabecalho-detalhe h2 {
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+  }
+  
+  /* Grade de Campos */
+  .grid-dados {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+  }
+  
+  /* Cada linha */
+  .linha-dado {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .linha-dado label {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3rem;
+  }
+  
+  .linha-dado span {
+    color: #555;
+    background: #f9f9f9;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
+  }
+  
+  /* Ações */
+  .card-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  /* Botão Estilo */
+  .card-actions button {
+    padding: 0.6rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .btn-cancelar {
+    background-color: #0dcaf0;
+    color: #fff;
+  }
+  
+  .btn-cancelar:hover {
+    background-color: #0bbbe0;
+  }
+  

@@ -1,59 +1,161 @@
-# CrediConsultaWeb
+# CrediConsulta - Projeto Full Stack com Angular + Spring Boot + Docker
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Este projeto é uma aplicação full stack para consulta de créditos, composta por:
 
-## Development server
+- Frontend: Angular 17+ com NGINX
+- Backend: Spring Boot 3.4.4
+- Banco de Dados: MariaDB 10.5
+- Mensageria: Apache Kafka + Zookeeper
+- Orquestração: Docker Compose
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
+## 📊 Estrutura de Diretórios
+
+```
+CredConsulta/
+├── CrediConsultaWeb/         # Frontend Angular
+│   ├── src/
+│   ├── dist/credi-consulta-web/browser/
+│   ├── Dockerfile
+│   └── nginx.conf
+├── credito-consulta-api/    # Backend Spring Boot
+│   ├── src/
+│   ├── target/app.jar
+│   ├── Dockerfile
+│   └── wait-for.sh
+├── docker-compose.yml
+└── .env
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Como Executar o Projeto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 1. Clone o repositório
 
 ```bash
-ng generate --help
+git clone <repo-url>
+cd CredConsulta
 ```
 
-## Building
+### 2. Configure o arquivo `.env`
 
-To build the project run:
+```env
+# Banco de dados
+DB_ROOT_PASSWORD=root
+DB_NAME=credconsulta
+
+# Backend
+SPRING_DB_URL=jdbc:mariadb://db:3306/credconsulta
+SPRING_DB_USER=root
+SPRING_DB_PASS=root
+KAFKA_SERVERS=kafka:9092
+
+# Frontend
+FRONTEND_PORT=4200
+BACKEND_PORT=8080
+DB_PORT=3306
+ZOOKEEPER_PORT=2181
+KAFKA_PORT=9092
+```
+
+### 3. Build do projeto
 
 ```bash
-ng build
+# Angular build local (opcional)
+cd CrediConsultaWeb
+npm install
+npm run build -- --configuration=production
+cd ..
+
+# Compilar backend
+cd credito-consulta-api
+./mvnw clean package -DskipTests
+cd ..
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### 4. Subir os containers
 
 ```bash
-ng test
+docker-compose up --build
 ```
 
-## Running end-to-end tests
+> O script `wait-for.sh` garante que o backend aguarde o banco iniciar.
 
-For end-to-end (e2e) testing, run:
+---
+
+## 🌐 Acessos
+
+| Componente             | URL                                                                                               |
+| ---------------------- | ------------------------------------------------------------------------------------------------- |
+| Frontend Angular       | [http://localhost:4200](http://localhost:4200)                                                    |
+| Rota lista de créditos | [http://localhost:4200/lista-creditos](http://localhost:4200/lista-creditos)                      |
+| Backend Spring Boot    | [http://localhost:8080/api/creditos](http://localhost:8080/api/creditos) (ou conforme controller) |
+| MariaDB                | localhost:3306                                                                                    |
+| Kafka                  | localhost:9092                                                                                    |
+
+---
+
+## 🛠️ Dockerfile do Frontend
+
+```dockerfile
+FROM node:22.14.0 AS builder
+WORKDIR /app
+COPY . .
+RUN npm install
+RUN npm run build -- --configuration=production
+
+FROM nginx:alpine
+COPY --from=builder /app/dist/credi-consulta-web/browser /usr/share/nginx/html
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+```
+
+## 🛠️ nginx.conf
+
+```nginx
+server {
+  listen 80;
+  server_name localhost;
+
+  root /usr/share/nginx/html;
+  index index.html;
+
+  location / {
+    try_files $uri $uri/ /index.html;
+  }
+
+  error_page 404 /index.html;
+}
+```
+
+---
+
+## 🔧 Comandos úteis
+
+### Ver arquivos servidos pelo nginx
 
 ```bash
-ng e2e
+docker exec -it credconsulta-frontend-1 ls /usr/share/nginx/html
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+### Ver conteúdo do index.html
 
-## Additional Resources
+```bash
+docker exec -it credconsulta-frontend-1 cat /usr/share/nginx/html/index.html
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## ✉️ Dicas finais
+
+- Sempre use `docker-compose build --no-cache` ao fazer alterações no build do Angular.
+- Verifique a aba **Console/Network** do navegador (F12) para detectar erros de roteamento ou de carregamento de arquivos.
+- Se a rota Angular não abrir, certifique-se que está definida em `app-routing.module.ts`.
+
+---
+
+Projeto pronto para ser utilizado em desenvolvimento local e deploy em produção com Docker ✨
+
+
+

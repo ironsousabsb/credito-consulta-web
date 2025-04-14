@@ -1,3 +1,12 @@
-<section class="container">
-    <ng-content></ng-content>
-</section>
+<app-cabecalho></app-cabecalho>
+
+<div class="filtro-container">
+  <input
+    type="text"
+    placeholder="Buscar por NFSe ou Nº Crédito..."
+    [(ngModel)]="filtroBusca"
+  />
+</div>
+
+<app-listar-creditos [filtroBusca]="filtroBusca"></app-listar-creditos>
+

@@ -1,0 +1,74 @@
+<div class="pagina-detalhe" *ngIf="credito; else carregando">
+  <div class="cabecalho-wrapper">
+    <header class="cabecalho">
+      <section class="cabecalho-link">
+        <img src="logo.png" alt="Logo" />
+      </section>
+      <section class="cabecalho-credito">
+        <img src="adicionar-credito.png" alt="Ícone Adicionar" />
+        <h1>Adicionar Crédito</h1>
+      </section>
+    </header>
+  </div>
+
+  <div class="detalhe-credito">
+    <div class="cabecalho-detalhe">
+      <h2><i class="fas fa-file-alt"></i> Detalhes do Crédito</h2>
+    </div>
+
+    <div class="grid-dados">
+      <div class="linha-dado">
+        <label>Nº Crédito:</label>
+        <label>{{ credito.numeroCredito }}</label>
+      </div>
+      <div class="linha-dado">
+        <label>Nº NFSe:</label>
+        <span>{{ credito.numeroNfse }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Data de Constituição:</label>
+        <span>{{ credito.dataConstituicao }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Valor ISSQN:</label>
+        <span>{{ credito.valorIssqn }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Tipo de Crédito:</label>
+        <span>{{ credito.tipoCredito }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Simples Nacional:</label>
+        <span>{{ credito.simplesNacional }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Alíquota:</label>
+        <span>{{ credito.aliquota }}%</span>
+      </div>
+      <div class="linha-dado">
+        <label>Valor Faturado:</label>
+        <span>{{ credito.valorFaturado }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Valor de Dedução:</label>
+        <span>{{ credito.valorDeducao }}</span>
+      </div>
+      <div class="linha-dado">
+        <label>Base de Cálculo:</label>
+        <span>{{ credito.baseCalculo }}</span>
+      </div>
+    </div>
+
+    <div class="card-actions">
+      <button class="btn-cancelar" routerLink="/lista-creditos">
+        <i class="fas fa-arrow-left"></i> Voltar para a Lista
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<ng-template #carregando>
+  <p style="text-align: center; margin-top: 2rem;">Carregando crédito...</p>
+</ng-template>
+
